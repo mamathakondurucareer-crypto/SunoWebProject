@@ -1,0 +1,86 @@
+=== CORRECTED HINDI LYRICS ===
+N/A — the input lyrics are English-only.
+
+=== CORRECTED ENGLISH LYRICS ===
+[Verse 1]
+In the morning I will seek Your grace
+Before the world begins to stir
+Every breath an act of bhakti
+Every heartbeat says Your name
+
+[Chorus]
+Om Om Om Lord Ram
+Heaven and earth declare Your worth
+Om Om Om Lord Ram
+All creation sings Your praise
+
+[Verse 2]
+In the evening when the day is done
+I lay my burdens at Your feet
+You have been my strength and refuge
+Through the valleys and the peaks
+
+[Chorus]
+Om Om Om Lord Ram
+Heaven and earth declare Your worth
+Om Om Om Lord Ram
+All creation sings Your praise
+
+[Bridge]
+Who was and is and ever will be
+The eternal divine stands
+From the rising to the setting sun
+The Lord of creation commands
+
+[Outro]
+Om Om Om Lord Ram
+We bow to You forevermore
+
+=== SUNO READY LYRICS ===
+[Verse 1]
+In the morning I will seek Your grace
+Before the world begins to stir
+Every breath an act of bhakti
+Every heartbeat says Your name
+
+[Chorus]
+Om Om Om Lord Ram
+Heaven and earth declare Your worth
+Om Om Om Lord Ram
+All creation sings Your praise
+
+[Verse 2]
+In the evening when the day is done
+I lay my burdens at Your feet
+You have been my strength and refuge
+Through the valleys and the peaks
+
+[Chorus]
+Om Om Om Lord Ram
+Heaven and earth declare Your worth
+Om Om Om Lord Ram
+All creation sings Your praise
+
+[Bridge]
+Who was and is and ever will be
+The eternal divine stands
+From the rising to the setting sun
+The Lord of creation commands
+
+[Outro]
+Om Om Om Lord Ram
+We bow to You forevermore
+
+=== PRONUNCIATION NOTES ===
+Word: bhakti — BHAK-tee — aspirated "bh", stress first syllable
+Word: forevermore — for-EV-er-MORE — even stress on each syllable; hold final "more"
+Word: eternal — ee-TER-nal — stress second syllable; clear "r"
+
+=== ISSUES FOUND ===
+- Original "Every breath a act" is grammatically incorrect — corrected to "an act" (severity: high) [location: Verse 1]
+- "Om Om Om" bridge opening — confirm syllable count fits the Suno melody arc (severity: medium) [location: Bridge]
+- Chorus line 2 "declare Your worth" is slightly abstract for congregational singing — acceptable but flag for bhajan leader review (severity: low) [location: Chorus]
+
+=== MANUAL REVIEW NOTES ===
+1. Bridge line "The eternal divine stands" — confirm grammatical preference with bhajan leader; "reigns" may better suit the melodic arc
+2. Verify "Heaven and earth declare Your worth" fits syllabically with the existing Suno style prompt before submission

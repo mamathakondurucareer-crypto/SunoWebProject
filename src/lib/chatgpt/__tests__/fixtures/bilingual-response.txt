@@ -1,0 +1,124 @@
+=== CORRECTED HINDI LYRICS ===
+[Verse 1]
+Prabhu Ram teri kripa hai apar
+Teri daya hai behadd pyaar
+Jab andhere mein main kho jaata hoon
+Teri roshan jyoti mujhe mile
+
+[Chorus]
+Teri kripa hai, teri kripa hai
+Har pal mera sahara tu hai
+Teri daya kabhi na khatam ho
+Teri kripa hai, teri kripa hai
+
+[Verse 2]
+Tu hi mera rakhwala hai, Ram
+Tu hi meri umeed aur vishwaas
+Tere bina yeh jeevan soona hai
+Teri kripa se mujhe naya dil mile
+
+[Chorus]
+Teri kripa hai, teri kripa hai
+Har pal mera sahara tu hai
+Teri daya kabhi na khatam ho
+Teri kripa hai, teri kripa hai
+
+[Bridge]
+Siya Ram, teri mahima ho
+Aaj aur hamesha ke liye
+Teri kripa ka yeh geet gaayein hum
+Swarg tak yeh awaaz pahunche
+
+[Outro]
+Teri kripa hai apar, Ram
+Teri daya hai amar
+
+=== CORRECTED ENGLISH LYRICS ===
+[Verse 1]
+Lord Ram Your grace is beyond measure
+Your mercy is an endless love
+When I am lost in deepest darkness
+Your radiant light finds me again
+
+[Chorus]
+Your grace, Your grace
+You are my refuge every moment
+Your mercy never runs dry
+Your grace, Your grace
+
+[Verse 2]
+You alone are my protector, Ram
+You are my hope and my belief
+Without You this life is empty
+Through Your grace give me a new heart
+
+[Chorus]
+Your grace, Your grace
+You are my refuge every moment
+Your mercy never runs dry
+Your grace, Your grace
+
+[Bridge]
+Siya Ram, all glory be to You
+Today and forever more
+We will sing this song of Your grace
+May this voice reach up to the heavens
+
+[Outro]
+Your grace is beyond measure, Ram
+Your mercy endures forever
+
+=== SUNO READY LYRICS ===
+[Verse 1]
+Lord Ram Your grace is beyond measure
+Your mercy is an endless love
+When I am lost in deepest darkness
+Your radiant light finds me again
+
+[Chorus]
+Your grace, Your grace
+You are my refuge every moment
+Your mercy never runs dry
+Your grace, Your grace
+
+[Verse 2]
+You alone are my protector, Ram
+You are my hope and my belief
+Without You this life is empty
+Through Your grace give me a new heart
+
+[Chorus]
+Your grace, Your grace
+You are my refuge every moment
+Your mercy never runs dry
+Your grace, Your grace
+
+[Bridge]
+Siya Ram, all glory be to You
+Today and forever more
+We will sing this song of Your grace
+May this voice reach up to the heavens
+
+[Outro]
+Your grace is beyond measure, Ram
+Your mercy endures forever
+
+=== PRONUNCIATION NOTES ===
+Word: Ram — RAAM — long "aa" vowel; do not shorten to "rum"
+Word: kripa — KREE-paa — long final vowel; do not clip the "aa"
+Word: daya — DAA-yaa — both vowels long; gentle flow
+Word: Siya — SI-yaa — stress first syllable; long trailing "aa"
+Word: apar — uh-PAAR — stress second syllable; rhymes with "par"
+Word: vishwaas — vish-WAAS — long final vowel; aspirated "v"
+
+=== ISSUES FOUND ===
+- Original line "Jab andhere mein main kho jaata hoon" has 11 syllables — adjusted to 10 to match melody (severity: high) [location: Verse 1]
+- "roshan jyoti" replaces redundant "roshan roshni" (both meant radiant light) — corrected for clarity (severity: medium) [location: Verse 1]
+- English chorus "Your mercy never runs out" changed to "never runs dry" for better poetic register (severity: low) [location: Chorus]
+- Bridge line "Aaj aur hamesha ke liye" may need tempo adjustment — 9 syllables where 8 is preferred (severity: medium) [location: Bridge]
+- Outro Hindi "teri daya hai amar" — confirm "amar" (immortal/eternal) is the intended word; "abadi" (everlasting) is an alternative (severity: low) [location: Outro]
+
+=== MANUAL REVIEW NOTES ===
+1. Confirm with bhajan leader that "Siya Ram" is preferred over "Jai Shri Ram" for the bridge — both are traditional but differ in emotional register
+2. The Hindi Verse 2 "Tu hi meri umeed aur vishwaas" packs two abstract nouns into one line — consider splitting across two lines if the melody allows
+3. Cross-check Bridge syllable count against the actual Suno-generated melody before finalising

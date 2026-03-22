@@ -1,0 +1,62 @@
+=== SECTION === SCENE_01_GROK_PROMPT
+A wide establishing shot of an ancient temple exterior at dawn, ornate stone pillars rising into a pink-gold sky. A slow push-in move from the outer gate toward the sanctum, golden mist curling around the threshold. Soft rim light from the rising sun illuminates intricate carvings, marigold garlands draped across the entrance, incense smoke rising in delicate wisps. The mood is reverent and expectant — the spiritual journey is beginning.
+
+=== SECTION === SCENE_01_DURATION_TARGET
+10
+
+=== SECTION === SCENE_01_ASPECT_RATIO
+9:16
+
+=== SECTION === SCENE_01_CONTINUITY_NOTE
+Opens the video as the establishing wide shot; Scene 02 dissolves in with a tight close-up, creating an intimate contrast after this expansive opening.
+
+=== SECTION === SCENE_01_VISUAL_EMPHASIS
+The temple entrance framed by marigold garlands and golden sunrise light is the primary focal point.
+
+=== SECTION === SCENE_01_NEGATIVE_CONSTRAINTS
+modern buildings, people in casual western clothing, commercial logos, vehicles, harsh midday light, text overlays
+
+=== SECTION === SCENE_01_PUBLIC_SAFE_WORDING
+Prompt depicts a peaceful temple exterior at dawn with no violence, no restricted characters, and no copyrighted imagery. Public-safe confirmed.
+
+=== SECTION === SCENE_02_GROK_PROMPT
+An intimate close-up of a devotee's folded hands cradling a brass diya, warm candlelight casting a golden glow on weathered fingers. The camera holds gently with a barely perceptible rightward drift, depth of field blurring the background into warm bokeh. A few scattered marigold petals rest beside the lamp, and a thread of incense smoke drifts past. The atmosphere is quietly sacred — personal devotion in its purest form.
+
+=== SECTION === SCENE_02_DURATION_TARGET
+12
+
+=== SECTION === SCENE_02_ASPECT_RATIO
+9:16
+
+=== SECTION === SCENE_02_CONTINUITY_NOTE
+Dissolves from the wide temple shot of Scene 01; tight framing creates an intimate counterpoint before the pre-chorus builds energy in Scene 03.
+
+=== SECTION === SCENE_02_VISUAL_EMPHASIS
+The brass diya flame cradled in folded hands is the emotional and visual anchor.
+
+=== SECTION === SCENE_02_NEGATIVE_CONSTRAINTS
+open eyes staring at camera, modern jewelry, rings, nail polish, dark background, people in background
+
+=== SECTION === SCENE_02_PUBLIC_SAFE_WORDING
+Depicts folded hands holding a lamp in prayer; no violence, no copyrighted characters, no restricted content. Public-safe confirmed.
+
+=== SECTION === SCENE_03_GROK_PROMPT
+The camera tilts upward from altar level, revealing a golden shrine adorned with fresh flowers, glowing diyas arranged symmetrically, and a large sacred idol at center. Anticipatory energy builds as the frame ascends — the altar growing more majestic with each frame. Soft backlight halos the idol while foreground incense smoke adds depth and movement. The tilt ends with the full altar in frame, ready for the chorus's emotional peak.
+
+=== SECTION === SCENE_03_DURATION_TARGET
+8
+
+=== SECTION === SCENE_03_ASPECT_RATIO
+9:16
+
+=== SECTION === SCENE_03_CONTINUITY_NOTE
+Upward tilt provides a visual bridge from the intimate close-up of Scene 02 to the wide sweeping chorus shot of Scene 04.
+
+=== SECTION === SCENE_03_VISUAL_EMPHASIS
+The golden shrine idol revealed at the apex of the upward tilt is the visual climax of this scene.
+
+=== SECTION === SCENE_03_NEGATIVE_CONSTRAINTS
+static camera, dark or shadowed altar, flowers out of frame, overcrowded foreground, modern electric lights
+
+=== SECTION === SCENE_03_PUBLIC_SAFE_WORDING
+Religious shrine with idol depicted respectfully; no violence, no restricted characters, no copyrighted marks. Public-safe confirmed.

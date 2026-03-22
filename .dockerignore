@@ -1,0 +1,41 @@
+# Dependencies — reinstalled inside the image
+node_modules/
+
+# Next.js build output — built inside the image
+.next/
+
+# Local data volumes — never bake into image
+data/
+
+# Environment files — injected at runtime via env_file / -e
+.env
+.env.local
+.env.*.local
+
+# Git
+.git/
+.gitignore
+
+# Editor / OS
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test / coverage artifacts
+coverage/
+.nyc_output/
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# Docker files themselves (no need to copy into image)
+Dockerfile
+Dockerfile.*
+docker-compose*.yml
+.dockerignore

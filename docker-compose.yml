@@ -1,0 +1,234 @@
+# ─── Devotional Workflow — Docker Compose ─────────────────────────────────────
+#
+# Services
+#   migrate       One-shot DB migration; web + worker wait for it to finish.
+#   web           Next.js standalone server (port 3000).
+#   worker        Playwright automation worker (polls SQLite job queue).
+#   login-helper  Interactive browser login tool (profile: login).
+#
+# Quick start
+#   ./scripts/init-data-dirs.sh        # create host directories once
+#   cp .env.example .env && $EDITOR .env
+#   docker compose build
+#   docker compose up -d
+#
+# Development override
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+#
+# Login helper (first-time browser session setup)
+#   docker compose --profile login run --rm login-helper <service-name>
+#
+# Requires Docker Engine 23+ / Compose v2.1+ for service_completed_successfully.
+
+version: '3.9'
+
+services:
+
+  # ─── DB Migration ───────────────────────────────────────────────────────────
+  # Runs once on every `docker compose up`. The migration script is idempotent
+  # (CREATE TABLE IF NOT EXISTS), so re-running it is always safe.
+  # Both `web` and `worker` wait for this service to complete successfully
+  # before starting, guaranteeing the schema exists before any DB access.
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    image: devotional-worker:latest
+    container_name: devotional-migrate
+    restart: "no"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      DB_PATH: /data/db/devotional.db
+    volumes:
+      - db_data:/data/db
+    networks:
+      - devotional-net
+    command: ["npx", "tsx", "src/lib/db/migrate.ts"]
+
+  # ─── Next.js Web App ────────────────────────────────────────────────────────
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: devotional-web:latest
+    container_name: devotional-web
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+      DB_PATH: /data/db/devotional.db
+      PROJECTS_DIR: /data/projects
+      DOWNLOADS_DIR: /data/downloads
+      LOGS_DIR: /data/logs
+      BROWSER_PROFILES_DIR: /data/browser-profiles
+    volumes:
+      - db_data:/data/db
+      - projects_data:/data/projects
+      - downloads_data:/data/downloads
+      - logs_data:/data/logs
+      - browser_profiles:/data/browser-profiles
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    networks:
+      - devotional-net
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/worker/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 45s
+
+  # ─── Playwright Worker ──────────────────────────────────────────────────────
+  # Polls the SQLite job queue and drives browser automation via Playwright.
+  # shm_size: 2gb prevents Chromium from crashing due to low /dev/shm space,
+  # which is only 64 MB by default in Docker containers.
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    image: devotional-worker:latest
+    container_name: devotional-worker
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      DB_PATH: /data/db/devotional.db
+      PROJECTS_DIR: /data/projects
+      DOWNLOADS_DIR: /data/downloads
+      LOGS_DIR: /data/logs
+      BROWSER_PROFILES_DIR: /data/browser-profiles
+      WORKER_ID: worker-1
+      WORKER_POLL_INTERVAL_MS: "2000"
+      WORKER_MAX_CONCURRENT_JOBS: "1"
+      PLAYWRIGHT_HEADLESS: "true"
+      PLAYWRIGHT_SLOW_MO: "100"
+      PLAYWRIGHT_TIMEOUT_MS: "60000"
+      PLAYWRIGHT_NAV_TIMEOUT_MS: "30000"
+      PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
+    volumes:
+      - db_data:/data/db
+      - projects_data:/data/projects
+      - downloads_data:/data/downloads
+      - logs_data:/data/logs
+      - browser_profiles:/data/browser-profiles
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    networks:
+      - devotional-net
+    shm_size: '2gb'
+    healthcheck:
+      test:
+        - "CMD"
+        - "node"
+        - "-e"
+        - >
+          const p=process.env.DB_PATH||'/data/db/devotional.db';
+          const fs=require('fs');
+          if(!fs.existsSync(p))process.exit(0);
+          const db=require('./node_modules/better-sqlite3')(p);
+          db.prepare('SELECT 1').get();
+          db.close();
+          process.exit(0);
+      interval: 30s
+      timeout: 15s
+      start_period: 30s
+      retries: 3
+
+  # ─── Login Helper ───────────────────────────────────────────────────────────
+  # One-off interactive service for logging into browser profiles.
+  # Saves persistent sessions to the browser-profiles volume so the worker
+  # can reuse them in headless mode.
+  #
+  # Usage:
+  #   docker compose --profile login run --rm login-helper
+  #
+  # On Linux (X11 display forwarding):
+  #   DISPLAY=:0 docker compose --profile login run --rm login-helper
+  #   # Also uncomment the DISPLAY env var and /tmp/.X11-unix volume below.
+  #
+  # On macOS (XQuartz):
+  #   Install XQuartz, run `xhost +localhost`, then set DISPLAY=host.docker.internal:0
+  login-helper:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    image: devotional-worker:latest
+    container_name: devotional-login
+    profiles:
+      - login
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: development
+      DB_PATH: /data/db/devotional.db
+      BROWSER_PROFILES_DIR: /data/browser-profiles
+      PLAYWRIGHT_HEADLESS: "false"
+      # Uncomment for Linux X11:
+      # DISPLAY: "${DISPLAY:-:0}"
+    volumes:
+      - db_data:/data/db
+      - browser_profiles:/data/browser-profiles
+      # Uncomment for Linux X11 display forwarding:
+      # - /tmp/.X11-unix:/tmp/.X11-unix:ro
+    networks:
+      - devotional-net
+    command: ["npx", "tsx", "scripts/login-helper.ts"]
+
+# ─── Volumes ──────────────────────────────────────────────────────────────────
+# All volumes are host bind-mounts so data survives container recreation and
+# is directly accessible on the host filesystem for backup/inspection.
+#
+# HOST_DATA_DIR defaults to ./data (relative to this file).
+# Set it in .env to use an absolute path, e.g.:
+#   HOST_DATA_DIR=/opt/devotional/data
+#
+# Run `./scripts/init-data-dirs.sh` once to create these directories.
+volumes:
+  db_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${HOST_DATA_DIR:-./data}/db
+
+  projects_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${HOST_DATA_DIR:-./data}/projects
+
+  downloads_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${HOST_DATA_DIR:-./data}/downloads
+
+  logs_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${HOST_DATA_DIR:-./data}/logs
+
+  browser_profiles:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${HOST_DATA_DIR:-./data}/browser-profiles
+
+# ─── Networks ─────────────────────────────────────────────────────────────────
+networks:
+  devotional-net:
+    driver: bridge

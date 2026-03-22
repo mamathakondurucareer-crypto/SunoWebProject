@@ -1,0 +1,83 @@
+=== SONG TITLE ===
+Raghupati Raghava — Song of Praise
+
+=== LYRICS ===
+[Verse 1]
+Raghupati Raghava Raja Ram
+Patita Pavana Sita Ram
+Bolo bolo sab mil bolo
+Ram naam satya hai
+
+[Chorus]
+Ram naam ki mahima nirali
+Har dil mein basi hai
+Ek hi naama ek hi dham
+Sita Ram Sita Ram
+
+[Verse 2]
+Ishwar Allah tero naam
+Sabko sanmati de Bhagwan
+Antar ke andhiyaare mein
+Jyoti jalaao Ram
+
+[Chorus]
+Ram naam ki mahima nirali
+Har dil mein basi hai
+Ek hi naama ek hi dham
+Sita Ram Sita Ram
+
+[Bridge]
+Dohe ke sangam mein
+Tere naam ka jaap hai
+Har pal har ghadi
+Teri bhakti ka khwaab hai
+
+[Outro]
+Siya Ram Siya Ram
+Siya Ram jay jay Ram
+
+=== STYLE NOTES ===
+Devotional bhajan with roots in Tulsidas bhakti tradition. Tempo: 72 BPM. Key of Sa/G major. Instrumentation: harmonium (lead), tabla (rhythm), sarangi (sustain), light manjira. Mood: warm, reflective, triumphant by the bridge. Vocal texture: soulful lead with layered choir harmonies entering at the chorus.
+
+=== VOCAL GUIDANCE ===
+Emphasise "Ram" and "Sita" in verse 1 with a gentle gamak. The word "mahima" in the chorus should be held for two beats on a rising interval. Breathe after "andhiyaare" in verse 2. Bridge should build dynamically — slight crescendo into "bhakti ka khwaab". Pronunciation note for the Outro: "Siya" — stress the first syllable, SI-ya. Close vowels on "Ram" and "dham" at the end for resonance.
+
+=== SUNO STYLE PROMPT ===
+devotional bhajan, harmonium, tabla, 72 BPM, Sa/G major, soulful female vocals, layered choir harmonies, reverent and triumphant
+
+=== BACKGROUND ===
+Raghupati Raghava Raja Ram is one of the most beloved bhajans in the Vaishnava bhakti tradition, composed in devotion to Lord Ram. This arrangement draws on Tulsidas's Ramcharitmanas while adding a contemporary chorus that reflects the transforming power of Ram Nam — the divine name that purifies and liberates. The bhajan is traditionally sung during morning aarti and Ram Navami celebrations across Bharat.
+
+=== SCENE PLAN ===
+Scene 1 (0-10s): A solitary devotee stands at the ghats of Ayodhya at dawn, head bowed in quiet prayer
+Scene 2 (10-20s): Wide shot of golden sunlight breaking through morning mist over the Sarayu river
+Scene 3 (20-30s): Close-up of hands folded in anjali mudra, a lit diya glowing in the foreground
+Scene 4 (30-40s): A congregation of devotees in a temple courtyard rising for morning aarti
+Scene 5 (40-50s): Slow-motion shot of flower petals falling into the Sarayu from a devotee's hands
+Scene 6 (50-60s): The solitary devotee from Scene 1 now standing tall, arms raised in bhakti, bathed in full morning sunlight
+Scene 7 (60-70s): Wide aerial shot slowly pulling back to reveal the Ram Mandir spire at golden hour
+
+=== THUMBNAIL CONCEPTS ===
+Thumbnail 1: Warm saffron light rays piercing through morning mist over the Sarayu, silhouetted devotee with arms raised; bold white Devanagari "राम" overlaid at the bottom with a gold glow
+Thumbnail 2: Close-up of weathered hands in anjali mudra, soft bokeh background of a lit diya; text "Raghupati Raghava — Song of Praise" in elegant script
+Thumbnail 3: Full temple courtyard shot mid-aarti, high devotion, vibrant saffron lighting; text "Ram Naam Ki Mahima Nirali" in bold Devanagari with a deep-saffron gradient overlay
+
+=== SEO METADATA ===
+Title: Raghupati Raghava Raja Ram — Devotional Bhajan | Ram Bhakti
+Description: A heartfelt devotional bhajan rendition of Raghupati Raghava, celebrating Lord Ram's glory. Perfect for morning aarti, temple worship, and personal bhakti practice.
+Tags: raghupati raghava, ram bhajan, devotional music, hindu bhajan, ram bhakti, harmonium bhajan, sita ram, jai shri ram, morning aarti, ram navami
+Hashtags: #RaghupatiRaghava #RamBhajan #DevotionalMusic #HinduBhajan #RamBhakti #JaiShriRam #SitaRam #MorningAarti
+
+=== SHORTS/REELS CTA ===
+1. Subscribe for daily bhajans
+2. Share this Ram bhakti with someone today
+3. Tap to add to your bhakti playlist
+
+=== RISK REVIEW ===
+Doctrinal Accuracy: The lyrics and background are theologically sound, drawing on Tulsidas's Ramcharitmanas and Vaishnava bhakti tradition. No doctrinal concerns identified.
+Copyright Notes: Original Tulsidas text is fully in the public domain. New chorus and bridge are original compositions — no copyright issues.
+Language Sensitivity: Hindi and Sanskrit text is broadly accessible. Traditional bhajan language is appropriate for all devotional audiences.
+Overall Risk: low
+
+=== COMPLETENESS AUDIT ===
+All 12 sections are present and complete. Song title, lyrics (6 labelled sections), style notes, vocal guidance, Suno prompt, background, scene plan (7 scenes), 3 thumbnail concepts, SEO metadata with tags and hashtags, 3 CTAs, and risk review are included. Package is production-ready.

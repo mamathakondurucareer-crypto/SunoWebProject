@@ -1,0 +1,107 @@
+=== SONG TITLE ===
+Jai Shri Ram — Bhajan of Devotion
+
+=== LYRICS ===
+[Verse 1]
+Raghupati Raghava Raja Ram
+Patita Pavana Sita Ram
+Bolo bolo sab mil bolo
+Ram naam satya hai
+
+[Chorus]
+Jai Shri Ram, Jai Shri Ram
+Har dil mein basi hai ye dhun
+Jai Shri Ram, Jai Shri Ram
+Jagata ujiyaara karun
+
+[Bridge]
+Siya Ram Siya Ram
+Siya Ram jay jay Ram
+Siya Ram Siya Ram
+Siya Ram jay jay Ram
+
+=== STYLE NOTES ===
+Devotional bhajan, 84 BPM, key of Sa (C major), harmonium lead, tabla rhythm.
+
+=== VOCAL GUIDANCE ===
+Strong projection on "Jai Shri Ram". Clear aspirated consonants on "Raghupati" throughout.
+
+=== SUNO STYLE PROMPT ===
+devotional bhajan, harmonium, tabla, 84 BPM, Sa/C major, powerful male lead vocals
+
+=== BACKGROUND ===
+A devotional bhajan honouring Lord Ram, drawing from Tulsidas's Ramcharitmanas and the Vaishnava bhakti tradition of morning aarti and kirtan.
+
+=== SCENE PLAN ===
+Scene 1 (0-10s): Wide sunrise over the Sarayu river at Ayodhya, golden ghats emerging from mist
+Scene 2 (10-20s): Devotees gathered in temple courtyard for morning aarti, bells ringing
+Scene 3 (20-30s): Hands raised in prayer, diyas flickering in the foreground
+
+=== THUMBNAIL CONCEPTS ===
+Thumbnail 1: Sunrise silhouette of Ram Darbar with bold saffron "Jai Shri Ram" text and glow effect
+Thumbnail 2: Aarti scene under dramatic warm lighting, text "Bhajan of Devotion" in clean Devanagari script
+Thumbnail 3: Close-up of devotee with eyes closed in prayer; saffron and gold colour treatment
+
+=== SEO METADATA ===
+Title: Jai Shri Ram — Devotional Bhajan | Ram Bhakti
+Description: An uplifting devotional bhajan honouring Lord Ram, for morning aarti, temple worship, and personal bhakti practice.
+Tags: jai shri ram, bhajan, ram bhakti, devotional music, hindi bhajan, raghupati raghava, sita ram, hindu devotional
+Hashtags: #JaiShriRam #Bhajan #RamBhakti #DevotionalMusic #HinduBhajan #Aarti #RamNavami
+
+=== SHORTS/REELS CTA ===
+1. Share the bhakti today
+2. Subscribe for more bhajans
+3. Tag someone who loves Ram bhajan
+
+=== RISK REVIEW ===
+Doctrinal Accuracy: Sound Vaishnava theology rooted in Ramcharitmanas. No doctrinal concerns.
+Copyright Notes: Original composition based on public-domain Tulsidas text.
+Language Sensitivity: Broadly accessible Hindi and Sanskrit.
+Overall Risk: low
+
+=== COMPLETENESS AUDIT ===
+All sections present. Package is production-ready.
+
+Here is the structured data for this package:
+
+```json
+{
+  "song_title": "Jai Shri Ram — Bhajan of Devotion",
+  "lyrics_raw": "[Verse 1]\nRaghupati Raghava Raja Ram\nPatita Pavana Sita Ram\nBolo bolo sab mil bolo\nRam naam satya hai\n\n[Chorus]\nJai Shri Ram, Jai Shri Ram\nHar dil mein basi hai ye dhun\nJai Shri Ram, Jai Shri Ram\nJagata ujiyaara karun\n\n[Verse 2]\nAntar ke andhiyaare mein\nJyoti jalaao Ram\nEk hi naama ek hi dham\nSita Ram Sita Ram\n\n[Chorus]\nJai Shri Ram, Jai Shri Ram\nHar dil mein basi hai ye dhun\nJai Shri Ram, Jai Shri Ram\nJagata ujiyaara karun\n\n[Bridge]\nSiya Ram Siya Ram\nSiya Ram jay jay Ram\nSiya Ram Siya Ram\nSiya Ram jay jay Ram\n\n[Outro]\nShanti shanti shanti\nRam naam satya hai",
+  "style_notes": "Devotional bhajan, 84 BPM, key of Sa/C major, harmonium lead, tabla rhythm, layered choir, warm and celebratory feel",
+  "vocal_guidance": "Strong projection on 'Jai Shri Ram'. Clear aspirated consonants. Build intensity from verse 2 into the second chorus. Bridge should be reverent and slower before the final chorus.",
+  "suno_style_prompt": "devotional bhajan, harmonium, tabla, 84 BPM, Sa/C major, powerful male lead vocals, layered choir, joyful Ram bhakti",
+  "background": "Drawing on Tulsidas's Ramcharitmanas and the Vaishnava bhakti tradition, this bhajan is a morning declaration of devotion to Lord Ram. The Jai Shri Ram refrain connects the listener to centuries of kirtan and temple worship across Bharat.",
+  "scene_plan": [
+    {"scene_number": 1, "start_seconds": 0,  "end_seconds": 10, "description": "Wide sunrise over the Sarayu river at Ayodhya, golden ghats emerging from mist", "visual_notes": "Time-lapse speed, saffron and gold palette"},
+    {"scene_number": 2, "start_seconds": 10, "end_seconds": 20, "description": "Devotees gathered in temple courtyard for morning aarti, bells ringing", "visual_notes": null},
+    {"scene_number": 3, "start_seconds": 20, "end_seconds": 30, "description": "Hands raised in prayer, diyas flickering in the foreground, warm backlighting", "visual_notes": "Soft lens flare"},
+    {"scene_number": 4, "start_seconds": 30, "end_seconds": 40, "description": "Lead singer at harmonium, eyes closed, fully immersed in bhajan", "visual_notes": null},
+    {"scene_number": 5, "start_seconds": 40, "end_seconds": 50, "description": "Aerial pull-back from temple courtyard to the holy city of Ayodhya at dusk", "visual_notes": "Drone shot"},
+    {"scene_number": 6, "start_seconds": 50, "end_seconds": 60, "description": "Children singing with joyful expressions during Bal Gopal kirtan", "visual_notes": null},
+    {"scene_number": 7, "start_seconds": 60, "end_seconds": 70, "description": "Return to Sarayu sunrise, Ram Darbar silhouette on horizon, fade to saffron", "visual_notes": "Match cut to Scene 1"}
+  ],
+  "thumbnail_concepts": [
+    {"concept_number": 1, "description": "Sunrise silhouette of Ram Darbar against golden sky; bold saffron 'Jai Shri Ram' text with glow effect"},
+    {"concept_number": 2, "description": "Aarti scene under dramatic saffron and gold lighting, text 'Bhajan of Devotion' in Devanagari script"},
+    {"concept_number": 3, "description": "Close-up of devotee with eyes closed in prayer; minimal text overlay with Om symbol"}
+  ],
+  "shorts_reels_cta": [
+    "Share the bhakti today",
+    "Subscribe for more bhajans",
+    "Tag someone who loves Ram bhajan"
+  ],
+  "seo": {
+    "title": "Jai Shri Ram — Devotional Bhajan | Ram Bhakti",
+    "description": "An uplifting devotional bhajan honouring Lord Ram, for morning aarti, temple worship, and personal bhakti practice. Rooted in Tulsidas's Ramcharitmanas.",
+    "tags": ["jai shri ram", "bhajan", "ram bhakti", "devotional music", "hindi bhajan", "raghupati raghava", "sita ram", "hindu devotional", "morning aarti", "kirtan"],
+    "hashtags": ["#JaiShriRam", "#Bhajan", "#RamBhakti", "#DevotionalMusic", "#HinduBhajan", "#Aarti", "#RamNavami", "#SitaRam"]
+  },
+  "risk_review": {
+    "doctrinal_accuracy": "Sound Vaishnava theology rooted in Ramcharitmanas and bhakti tradition. No doctrinal concerns.",
+    "copyright_notes": "Original composition. Tulsidas source text is fully in the public domain.",
+    "language_sensitivity": "Broadly accessible Hindi and Sanskrit. 'Jai Shri Ram' is universally recognised across Hindu traditions.",
+    "overall_risk": "low"
+  }
+}
+```

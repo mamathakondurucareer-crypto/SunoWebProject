@@ -1,0 +1,43 @@
+# ─── Development Override ─────────────────────────────────────────────────────
+#
+# Usage:
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+#
+# What this override adds:
+#   - Live source-code bind-mounts so Next.js hot-reloads on file changes
+#   - Worker source-mounts so `tsx --watch` picks up edits without rebuilding
+#   - NODE_ENV=development on all services
+#   - next dev server instead of the pre-built standalone server
+#   - Host-accessible ports for debugging
+#
+# NOTE: The base image must still be built first:
+#   docker compose build
+
+services:
+
+  web:
+    # Replace the pre-built standalone CMD with the Next.js dev server
+    command: ["npx", "next", "dev", "--port", "3000"]
+    environment:
+      NODE_ENV: development
+      NEXT_TELEMETRY_DISABLED: "1"
+    volumes:
+      # Mount full source so hot-reload works
+      - .:/app
+      # Keep the container's node_modules (compiled for linux) rather than the host's
+      - /app/node_modules
+      - /app/.next
+
+  worker:
+    command: ["npx", "tsx", "watch", "worker/index.ts"]
+    environment:
+      NODE_ENV: development
+      PLAYWRIGHT_HEADLESS: "false"
+      PLAYWRIGHT_SLOW_MO: "300"
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  migrate:
+    environment:
+      NODE_ENV: development

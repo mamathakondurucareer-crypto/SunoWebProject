@@ -1,0 +1,52 @@
+# ─── Playwright Worker ────────────────────────────────────────────────────────
+# Uses the official Microsoft Playwright image for jammy (Ubuntu 22.04).
+# This base image pre-installs ALL Playwright browsers + their system
+# dependencies — there is NO need to run `playwright install` again.
+#
+# Browser binaries location in this image: /ms-playwright
+# Node.js version shipped:                 Node 20 LTS
+FROM mcr.microsoft.com/playwright:v1.49.0-jammy
+WORKDIR /app
+
+# Install all dependencies including devDependencies (tsx is a devDep needed
+# to run TypeScript source directly at runtime without a compile step).
+# Do NOT use --ignore-scripts — better-sqlite3 must compile its native binding.
+COPY package*.json ./
+RUN npm ci
+
+# Copy full application source (worker + src/lib + scripts)
+COPY . .
+
+# ── Non-root user ────────────────────────────────────────────────────────────
+# Run the worker as an unprivileged user. The Playwright base image ships
+# browsers at /ms-playwright owned by root; ensure they stay world-readable.
+RUN groupadd --system --gid 1001 nodejs && \
+    useradd  --system --uid 1001 --gid nodejs worker && \
+    chmod -R a+rX /ms-playwright && \
+    mkdir -p /data/db /data/projects /data/logs /data/browser-profiles /data/downloads && \
+    chown -R worker:nodejs /data && \
+    chown -R worker:nodejs /app
+
+USER worker
+
+# ── Environment defaults ─────────────────────────────────────────────────────
+ENV NODE_ENV=production
+ENV PLAYWRIGHT_HEADLESS=true
+# Tell Playwright where the pre-installed browsers live (set by base image too)
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+
+# ── Health check ─────────────────────────────────────────────────────────────
+# Opens the SQLite database and runs a trivial query.
+# If the DB file does not exist yet (pre-migration), the check returns healthy
+# so the container does not restart-loop before migration has run.
+HEALTHCHECK --interval=30s --timeout=15s --start-period=30s --retries=3 \
+  CMD node -e "\
+    const p = process.env.DB_PATH || '/data/db/devotional.db'; \
+    const fs = require('fs'); \
+    if (!fs.existsSync(p)) process.exit(0); \
+    const db = require('./node_modules/better-sqlite3')(p); \
+    db.prepare('SELECT 1').get(); \
+    db.close(); \
+    process.exit(0);" || exit 1
+
+CMD ["npx", "tsx", "worker/index.ts"]
