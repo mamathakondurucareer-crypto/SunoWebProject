@@ -64,11 +64,27 @@ async function loginToService(name: ServiceName, url: string, instructions: stri
 
   fs.mkdirSync(profilePath, { recursive: true });
 
+  // Use real Chrome if available — Google/OpenAI block Playwright's Chromium
+  // as an automated browser during OAuth flows.
+  const systemChrome =
+    process.platform === 'darwin'
+      ? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+      : process.platform === 'linux'
+        ? '/usr/bin/google-chrome'
+        : undefined;
+  const executablePath = systemChrome && fs.existsSync(systemChrome) ? systemChrome : undefined;
+
   const context = await chromium.launchPersistentContext(profilePath, {
     headless: false,
     slowMo: 100,
     viewport: { width: 1280, height: 900 },
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    executablePath,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-blink-features=AutomationControlled',
+    ],
+    ignoreDefaultArgs: ['--enable-automation'],
   });
 
   const page = await context.newPage();

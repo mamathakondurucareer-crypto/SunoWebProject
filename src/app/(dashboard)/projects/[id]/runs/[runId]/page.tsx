@@ -27,7 +27,7 @@ export default function RunDetailPage() {
   const logs: Log[] = logsData?.data ?? [];
 
   const { data: approvalsData, mutate: mutateApprovals } = useSWR(`/api/workflow-runs/${runId}/approvals`, fetcher, { refreshInterval: 3000 });
-  const approvals: Approval[] = approvalsData ?? [];
+  const approvals: Approval[] = approvalsData?.data ?? [];
 
   const handleStart = async () => {
     await fetch(`/api/workflow-runs/${runId}/start`, { method: 'POST' });
