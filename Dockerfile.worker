@@ -5,8 +5,14 @@
 #
 # Browser binaries location in this image: /ms-playwright
 # Node.js version shipped:                 Node 20 LTS
-FROM mcr.microsoft.com/playwright:v1.49.0-jammy
+FROM mcr.microsoft.com/playwright:v1.58.2-jammy
 WORKDIR /app
+
+# Install build tools needed to compile native addons (e.g. better-sqlite3).
+# The Playwright base image does not include make/gcc by default.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential python3 \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install all dependencies including devDependencies (tsx is a devDep needed
 # to run TypeScript source directly at runtime without a compile step).
