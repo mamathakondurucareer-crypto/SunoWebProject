@@ -791,8 +791,58 @@ export class GeminiAdapter extends BaseServiceAdapter {
 
       this.log.info('execute', 'Response captured', { length: responseText.length });
 
+      // ── Handle multi-part responses (⟪CONTINUE? Reply YES to continue.⟫) ──
+      const CONTINUATION_MARKER = '⟪CONTINUE? Reply YES to continue.⟫';
+      const MAX_CONTINUATIONS = 10;
+      let fullResponse = responseText;
+      let continuationCount = 0;
+
+      while (fullResponse.includes(CONTINUATION_MARKER) && continuationCount < MAX_CONTINUATIONS) {
+        continuationCount++;
+        this.log.info('execute', `Gemini continuation ${continuationCount}/${MAX_CONTINUATIONS} required`);
+
+        // Strip marker from accumulated text
+        fullResponse = fullResponse.replace(CONTINUATION_MARKER, '').trimEnd();
+
+        // Type YES and submit
+        await page.locator(inputSel).first().click();
+        await page.keyboard.insertText('YES');
+
+        if (sendSel) {
+          await page.locator(sendSel).first().click();
+        } else {
+          await page.keyboard.press('Enter');
+        }
+
+        // Wait for stop button to disappear (new generation)
+        if (stopSel) {
+          await page.locator(stopSel).first()
+            .waitFor({ state: 'hidden', timeout: 300_000 })
+            .catch(() => {
+              this.log.warn('execute', 'Stop button wait timed out during continuation');
+            });
+        }
+
+        await page.waitForTimeout(2_000);
+        await scrollToBottom(page).catch(() => {});
+
+        const continuationText = await waitForStableText(page, respSel, {
+          stableCount: 3,
+          pollIntervalMs: 2_000,
+          timeoutMs: 300_000,
+        });
+
+        if (continuationText && continuationText.trim().length > 0) {
+          fullResponse += '\n' + continuationText;
+          this.log.info('execute', 'Continuation appended', { total: fullResponse.length });
+        } else {
+          this.log.warn('execute', 'Empty continuation response — stopping');
+          break;
+        }
+      }
+
       // ── Extract JSON block if present ───────────────────────────────────────
-      const jsonData = extractJsonBlock(responseText);
+      const jsonData = extractJsonBlock(fullResponse);
       if (jsonData) {
         this.log.debug('execute', 'JSON block extracted from response');
       }
@@ -800,7 +850,7 @@ export class GeminiAdapter extends BaseServiceAdapter {
       // ── Save raw output ─────────────────────────────────────────────────────
       fs.mkdirSync(ctx.runDir, { recursive: true });
       const outputFile = path.join(ctx.runDir, 'gemini_raw_output.txt');
-      fs.writeFileSync(outputFile, responseText, 'utf-8');
+      fs.writeFileSync(outputFile, fullResponse, 'utf-8');
       this.log.info('execute', 'Raw output saved', { outputFile });
 
       // Capture success screenshot
@@ -812,9 +862,9 @@ export class GeminiAdapter extends BaseServiceAdapter {
       return {
         success: true,
         output: {
-          raw_response: responseText,
+          raw_response: fullResponse,
           output_file: outputFile,
-          response_length: responseText.length,
+          response_length: fullResponse.length,
           ...(jsonData ? { json_data: jsonData } : {}),
         },
         assetPaths: [
