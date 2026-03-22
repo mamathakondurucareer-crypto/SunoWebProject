@@ -22,6 +22,7 @@ import type {
   InputRequest,
 } from '@/lib/workflow/types';
 
+import { parseGeminiOutput } from '@/lib/gemini';
 import { GeminiAdapter } from './adapters/gemini';
 import { ChatGPTAdapter } from './adapters/chatgpt';
 import { SunoAdapter } from './adapters/suno';
@@ -114,22 +115,29 @@ class GeminiCaptureParseRunner implements IStageRunner {
     }
 
     const rawResponse = (geminiOutput.raw_response as string) ?? '';
-    const sections: Record<string, string> = {};
-    const sectionRegex = /=== ([A-Z ]+) ===([\s\S]*?)(?====|$)/g;
-    let match: RegExpExecArray | null;
-    while ((match = sectionRegex.exec(rawResponse)) !== null) {
-      const key = match[1].trim().toLowerCase().replace(/\s+/g, '_');
-      sections[key] = match[2].trim();
-    }
+    const parseResult = parseGeminiOutput(rawResponse);
+    const parsed = parseResult.data;
 
     const output = {
-      title: sections['song_title'] ?? 'Untitled',
-      lyrics: sections['lyrics'] ?? rawResponse,
-      style_notes: sections['style_notes'] ?? '',
-      vocal_guidance: sections['vocal_guidance'] ?? '',
-      suno_style_prompt: sections['suno_style_prompt'] ?? 'devotional bhajan, harmonium, tabla, 80 BPM',
-      background: sections['background'] ?? '',
-      raw_sections: sections,
+      title: parsed.song_title || 'Untitled',
+      lyrics: parsed.lyrics_hindi_devanagari || parsed.lyrics_raw || rawResponse,
+      lyrics_english: parsed.lyrics_english || '',
+      style_notes: parsed.style_notes || '',
+      vocal_guidance: parsed.vocal_guidance || '',
+      suno_style_prompt: parsed.suno_style_prompt || '',
+      suno_prompt_english: parsed.suno_prompt_english || '',
+      background: parsed.background || '',
+      scene_plan: parsed.scene_plan,
+      thumbnail_concepts: parsed.thumbnail_concepts,
+      seo: parsed.seo,
+      shorts: parsed.shorts,
+      reels: parsed.reels,
+      compliance_plan: parsed.compliance_plan,
+      parse_source: parsed.source,
+      parse_warnings: parsed.parse_warnings,
+      completeness_score: parsed.completeness.score,
+      parse_success: parseResult.success,
+      parse_errors: parseResult.errors,
     };
 
     const parsedFile = path.join(ctx.dirs.run, 'parsed_gemini_output.json');
